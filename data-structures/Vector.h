@@ -114,11 +114,11 @@ template <typename T>
 size_t Vector<T>::find(T value, bool firstOccurrence) {
     if (firstOccurrence) {
         for (size_t i = 0; i < size; i++) {
-            if (data[i] = value) return i;
+            if (data[i] == value) return i;
         }
     } else {
-        for (size_t i = size - 1; i >= 0; i--) {
-            if (data[i] = value) return i;
+        for (size_t i = size; i > 0; i--) {
+            if (data[i - 1] == value) return i - 1;
         }
     }
     return -1;
