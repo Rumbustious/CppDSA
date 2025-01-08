@@ -41,6 +41,8 @@ class LinkedList {
     // void sort();
     // void sort(size_t start, size_t end);
 
+    T getTailData();
+    T getHeadData();
 
     size_t getSize();
 
@@ -223,6 +225,24 @@ void LinkedList<T>::print() {
     }
     cout << endl;
 }
+
+template <typename T>
+T LinkedList<T>::getTailData() {
+    if (tail == nullptr) {
+        throw std::out_of_range("List is empty");
+    }
+    return tail->data;
+}
+
+template <typename T>
+T LinkedList<T>::getHeadData() {
+    if (head == nullptr) {
+        throw std::out_of_range("List is empty");
+    }
+    return head->data;
+}
+
+
 template <typename T>
 LinkedList<T>::~LinkedList() {
     while (head != nullptr) {
