@@ -37,9 +37,10 @@ class LinkedList {
     size_t find(T value, bool firstOccurrence = true);
 
     // TODO: add sorting to linked list
-    
+
     // void sort();
     // void sort(size_t start, size_t end);
+
 
     size_t getSize();
 
@@ -188,6 +189,25 @@ T LinkedList<T>::remove(size_t index) {
     delete temp;
     size--;
     return tempData;
+}
+
+template <typename T>
+size_t LinkedList<T>::find(T value, bool firstOccurrence) {
+    Node* current = head;
+    size_t index = 0;
+    while (current != nullptr) {
+        if (current->data == value) {
+            return index;
+        }
+        current = current->next;
+        index++;
+    }
+    return -1;
+}
+
+template <typename T>
+size_t LinkedList<T>::getSize() {
+    return size;
 }
 
 template <typename T>
